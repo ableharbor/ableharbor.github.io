@@ -165,3 +165,5 @@ h1 span{color:var(--blue)}
 @media(prefers-reduced-motion:reduce){.ah-offer-dialog,.ah-offer-dialog::backdrop,.ah-offer-close,.ah-offer-cta,.ah-offer-cta-arrow{transition:none!important}.ah-offer-cta:before,.ah-cta-glow,.ah-cta-pulse{animation:none!important}}
 
 body.ah-offer-open{overflow:hidden}
+
+#projectInquiryForm{display:grid;gap:10px}#projectInquiryForm label{font-size:11px;font-weight:700;margin-top:4px}#projectInquiryForm input,#projectInquiryForm select,#projectInquiryForm textarea{width:100%;font:inherit;font-size:13px;padding:12px 13px;border:1px solid #cbd6e5;border-radius:7px;background:#fff;color:#17263c;min-width:0}#projectInquiryForm input:focus,#projectInquiryForm select:focus,#projectInquiryForm textarea:focus{outline:3px solid #C99A3533;border-color:#C99A35}#projectInquiryForm textarea{resize:vertical}#projectInquiryForm .form-note{font-size:10px;line-height:1.5;opacity:.8}

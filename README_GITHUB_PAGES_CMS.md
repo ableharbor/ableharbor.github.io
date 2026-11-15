@@ -1,6 +1,6 @@
 # ABLEHARBOR CMS — GitHub Pages
 
-The CMS runs in the browser and stores content in this repository. GitHub Actions generates CMS-managed routes and deploys the static website to GitHub Pages.
+The CMS runs in the browser and stores content in this repository. The ABLEHARBOR 3.0 update adds a workspace dashboard, expanded global settings, stronger publishing checks and a structured email-based project inquiry form. GitHub Actions generates CMS-managed routes and deploys the static website to GitHub Pages.
 
 - Public site: `https://ableharbor.github.io/`
 - Repository: `ableharbor/ableharbor.github.io`
@@ -108,3 +108,21 @@ The global promotional popup is managed from **CMS → Offer popup**. It is conf
 - The popup uses the browser's native modal dialog behavior, supports Escape/backdrop dismissal, and respects reduced-motion preferences.
 
 To disable the offer, open **CMS → Offer popup**, turn off **Enable promotional popup**, and select **Save & publish offer**.
+
+## ABLEHARBOR 3.0 additions
+- Workspace dashboard summarizes page records, published pages, section counts, media assets and configuration checks.
+- Global settings include LinkedIn company URL and a business availability note.
+- Homepage inquiry form validates required fields and prepares a structured email in the visitor's mail application. It does not transmit personal information to a third-party endpoint.
+- Existing editor retains reusable sections, drag-and-drop ordering, duplication, visibility, SEO editing and preview.
+- Existing hourly promotional popup manager remains CMS-driven.
+- GitHub Actions workflow is branded ABLEHARBOR and validates the static artifact before deployment.
+
+## Security and operational boundaries
+- GitHub token remains in volatile browser memory only; it is never written to localStorage, sessionStorage, repository files or generated pages.
+- Use a fine-grained token scoped to this repository and Contents read/write. Grant Actions read-only only if deployment status polling is needed.
+- GitHub Pages is static hosting and cannot safely host private API credentials, private lead storage or server-side authentication. The inquiry form therefore uses a user-controlled mailto handoff.
+- Do not store client secrets, private client records or credentials in repository JSON.
+- Preserve referenced asset filenames; inspect references and retain a backup before deleting media.
+
+## Features requiring a backend or external provider
+GitHub Pages serves static files. The current architecture cannot privately store enquiry submissions, provide server-side user accounts, or aggregate visitor analytics across users. The inquiry form deliberately opens the visitor's mail application instead of collecting personal data in browser storage. Repository commit history provides content revision history and rollback source-of-truth. Add a vetted backend or external analytics provider only after selecting its privacy, retention and cost model.

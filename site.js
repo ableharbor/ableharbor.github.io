@@ -178,6 +178,11 @@
         renderLinks(document.querySelector('.seo-footer-links'), data.navigation.footer);
       }
       if (data.contactEmail) setupEmailLinks(data.contactEmail);
+      if (data.social?.linkedin) document.querySelectorAll('a[href*="linkedin.com"]').forEach(link => { link.href = data.social.linkedin; });
+      if (typeof data.business?.availability === 'string' && data.business.availability.trim()) {
+        document.querySelectorAll('[data-cms-business-availability]').forEach(node => { node.textContent = data.business.availability; });
+      }
+
       renderOfferPopup(data.promoPopup, data.contactEmail);
       if (data.mediaAlt) document.querySelectorAll('img').forEach(img=>{try{const path=new URL(img.src,location.href).pathname.replace(/^\//,'');if(typeof data.mediaAlt[path]==='string'&&data.mediaAlt[path].trim())img.alt=data.mediaAlt[path].trim();}catch{}});
       if (data.footer) {
